@@ -1,70 +1,67 @@
 <!doctype html>
 <html>
 
-    <head>
-        <!-- Metadados -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-        <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="../assets/css/pag1.css" media="screen">
+<head>
+    <!-- Metadados -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Título da página (aparece na aba) -->
-        <title>Cadastro</title>
-    </head>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/pag1.css" media="screen">
 
-    <body>  
+    <!-- Título da página (aparece na aba) -->
+    <title>Cadastro</title>
+</head>
 
-        <!-- Cabeçalho com título e subtítulo (ambos com css de id "titulo") -->
+<body>
+
+    <!-- Cabeçalho com título e subtítulo (ambos com css de id "titulo") -->
+    <div>
+        <h1 id="titulo"> Cadastro</h1>
+        <p id="subtitulo">Complete suas informações</p>
+        <br>
+    </div>
+
+    <!-- Início do formulário -->
+    <form>
+
         <div>
-            <h1 id="titulo"> Cadastro</h1>
-            <p id="subtitulo">Complete suas informações</p>
-            <br>
-        </div>
-
-        <!-- Início do formulário -->
-        <form>
-
             <fieldset class="grupo">
                 <!-- Campo do nome com legenda "nome" e css de classe "campo" -->
                 <div class="campo">
                     <label for="nome"><strong>Nome</strong></label>
-                    <input type="text" name="nome" id="nome" required>
+                    <input type="text" name="nome" id="nome" required autocomplete="off" onkeyup="validarNome()">
+                    <div id="txtNome"></div>
                 </div>
 
                 <!-- Campo do sobrenome com legenda "sobrenome" e css de classe "campo" -->
                 <div class="campo">
                     <label for="sobrenome"><strong>Sobrenome</strong></label>
-                    <input type="text" name="sobrenome" id="sobrenome" required>
+                    <input type="text" name="sobrenome" id="sobrenome" required autocomplete="off" onkeyup="validarSobreNome()">
+                    <div id="txtSobrenome"></div>
                 </div>
-            </fieldset> 
+            </fieldset>
 
             <!-- Campo de email com-->
             <div class="campo">
                 <label for="email"><strong>Email</strong></label>
-                <input type="email" name="email" id="email" required>
+                <input type="email" name="email" id="email" required autocomplete="off" onkeyup="validarEmail()">
+                <div id="txtEmail"></div>
             </div>
-
-            <!-- Campo de senioridade com 3 opções para escolha (select option) e css de classe "campo" -->
-            <div class="campo">
-                <label for="senioridade"><strong>Senioridade</strong></label>
-                <select id="senioridade" required>
-                  <option selected disabled value="">Selecione</option>
-                  <option>Júnior</option>
-                  <option>Pleno</option>
-                  <option>Sênior</option>
-                </select>
-            </div>
-
             <!-- Caixa de texto -->
             <div class="campo">
                 <br>
-                <label for="experiencia"><strong>Conte um pouco mais da sua experiência: </strong></label>
-                <textarea rows="6" style="width: 26em" id="experiencia" name="experiencia"></textarea>
+                <label for="menssagem"><strong>Envie uma mensagem: </strong></label>
+                <textarea rows="6" style="width: 26em" id="menssagem" name="experiencia" onkeyup="validarAssunto()"></textarea>
+                <div id="txtMenssagem"></div>
             </div>
 
             <!-- Botão para enviar o formulário -->
-            <button class="botao" type="submit" onsubmit="">Concluído</button>            
-        </form>
-    </body>
+            <button class="botao" type="submit" onclick="enviar()">Concluído</button>
+        </div>
+    </form>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+
 </html>
